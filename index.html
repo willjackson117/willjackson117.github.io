@@ -24,9 +24,13 @@
                 transform: translateY(0);  /* Ends in its original position */
             }
         }
-        
+        h1, p, .btn {
+        opacity: 0;                      /* Starts invisible */
+        transform: translateY(20px);     /* Starts below its position */
+        animation-fill-mode: forwards;   /* Ensures the final state persists */
+        }
+
         h1 {
-            opacity: 0;
             color: #007bff;
             animation: fade 1s ease-out;  /* Apply the animation */
         }
