@@ -19,11 +19,22 @@
         p {
             color: #ffffff;
         }
+
+        @keyframes slideInFade {
+            from {
+                opacity: 0;               /* Starts fully transparent */
+                transform: translateY(50px);  /* Starts below the original position */
+            }
+            to {
+                opacity: 1;               /* Ends fully visible */
+                transform: translateY(0);  /* Ends in its original position */
+            }
+        }
         
         .btn {
             display: block; /* Ensures buttons stack vertically */
             width: 200px;
-            padding: 30px 0; /* Adjust padding for better height control */
+            padding: 15px 0; /* Adjust padding for better height control */
             font-size: 18px;
             color: white;
             background-color: #007bff;
@@ -31,6 +42,7 @@
             text-decoration: none;
             border-radius: 8px;
             margin: 30px auto; /* Ensures spacing and centers horizontally */
+            animation: slideInFade 1s ease-out;  /* Apply the animation */
         }
         .btn:hover {
             background-color: #0056b3;
