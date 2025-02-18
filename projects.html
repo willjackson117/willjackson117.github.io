@@ -11,8 +11,24 @@
             background-color: #36454F !important;
             padding: 20px;
         }
+        @keyframes fade {
+            from {
+                opacity: 0;               /* Starts fully transparent */
+                transform: translateY(50px);  /* Starts below the original position */
+            }
+            to {
+                opacity: 1;               /* Ends fully visible */
+                transform: translateY(0);  /* Ends in its original position */
+            }
+        }
+        h1, p, .project, .back-btn {
+        opacity: 0;                      /* Starts invisible */
+        transform: translateY(20px);     /* Starts below its position */
+        animation-fill-mode: forwards;   /* Ensures the final state persists */
+        }
         h1 {
             color: #007bff;
+            animation: fade 1s ease-out forwards;  /* Apply the animation */
         }
         .project {
             background-color: #283640 !important;
@@ -22,6 +38,8 @@
             max-width: 600px;
             border-radius: 8px;
             box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            animation: fade 1s ease-out forwards;  /* Apply the animation */
+            animation-delay: 1s;
         }
         .project a {
             color: #007bff;
@@ -37,6 +55,8 @@
             background-color: #007bff;
             text-decoration: none;
             border-radius: 5px;
+            animation: fade 1s ease-out forwards;  /* Apply the animation */
+            animation-delay: 2s;
         }
         .back-btn:hover {
             background-color: #0056b3;
@@ -52,7 +72,7 @@
 </head>
 <body>
     <h1>My Projects</h1>
-
+    <p>I love creating things, I always find myself working away at something. below you can check out some of my projects!</p>
     <div class="project">
         <h3>Dissertation: 3D Maze Generation and Solving Algorithms</h3>
         <p> Used Python to create algorithms to create and solve 3D cube (n by n by n) mazes.
