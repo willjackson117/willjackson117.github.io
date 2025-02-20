@@ -1,93 +1,152 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome</title>
+    <!-- Link to Bootstrap for navbar styling -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
     <style>
+        /* General Page Styling */
         body {
-    font-family: Arial, sans-serif;
-    text-align: center;
-    background-color: #36454F !important;
-    padding: 50px;
-    margin: 0;
-    height: 100vh;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #36454F !important;
+            padding: 50px;
+            margin: 0;
+            height: 100vh;
+            overflow: hidden; /* Prevent scrolling */
         }
 
+        /* Fade-in Animation */
         @keyframes fade {
             from {
-                opacity: 0;               /* Starts fully transparent */
-                transform: translateY(50px);  /* Starts below the original position */
+                opacity: 0;
+                transform: translateY(50px);
             }
+
             to {
-                opacity: 1;               /* Ends fully visible */
-                transform: translateY(0);  /* Ends in its original position */
+                opacity: 1;
+                transform: translateY(0);
             }
         }
+
+        /* Fade-in Targets */
         h1, p, .btn {
-        opacity: 0;                      /* Starts invisible */
-        transform: translateY(20px);     /* Starts below its position */
-        animation-fill-mode: forwards;   /* Ensures the final state persists */
+            opacity: 0; /* Start hidden */
+            transform: translateY(20px);
+            animation-fill-mode: forwards; /* Keep final state */
         }
 
         h1 {
             color: #007bff;
-            animation: fade 1s ease-out forwards;  /* Apply the animation */
+            animation: fade 1s ease-out forwards;
         }
+
         p {
             color: #ffffff;
-            animation: fade 1s ease-out forwards;  /* Apply the animation */
-            animation-delay: 1s;
+            animation: fade 1s ease-out forwards;
+            animation-delay: 1s; /* Delay for staggered effect */
         }
 
-
+        /* Button Styling */
         .btn {
-            display: block; /* Ensures buttons stack vertically */
+            display: block;
             width: 200px;
-            padding: 15px 0; /* Adjust padding for better height control */
+            padding: 15px 0;
             font-size: 18px;
             color: white;
             background-color: #007bff;
-            text-align: center; /* Centers text inside button */
+            text-align: center;
             text-decoration: none;
             border-radius: 8px;
-            margin: 30px auto; /* Ensures spacing and centers horizontally */
-            animation: fade 1s ease-out forwards;  /* Apply the animation */
-            animation-delay: 2s;
+            margin: 30px auto;
         }
+
         .btn:hover {
             background-color: #0056b3;
         }
+
+        /* Staggered Button Animations */
+        .btn:nth-child(1) {
+            animation: fade 1s ease-out forwards;
+            animation-delay: 2s; /* First button */
+        }
+
+        .btn:nth-child(2) {
+            animation: fade 1s ease-out forwards;
+            animation-delay: 2.5s; /* Second button */
+        }
+
+        .btn:nth-child(3) {
+            animation: fade 1s ease-out forwards;
+            animation-delay: 3s; /* Third button */
+        }
+
+        /* Navbar Styling */
+        nav {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: transparent;
+            transition: none;
+        }
+
+        .navbar-brand {
+            color: white;
+            font-weight: bold;
+            font-size: 1.2rem;
+            text-decoration: none;
+        }
+
+        .navbar-nav .nav-item .nav-link {
+            color: white;
+        }
+
+        .navbar-nav .nav-item .nav-link:hover {
+            color: #007bff;
+        }
+
     </style>
 </head>
+
 <body>
-    <nav class="navbar navbar-expand-lg navbar-themed fixed-top" style="position: absolute; top: 0px; transition: none;">
-        <div class="container"> <!-- Added container to center the content -->
-            <div class="centered-div">
-              <a class="navbar-brand" href="/"><h5><b>Will Jackson</b></h5></a>
-            </div>
-  
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                <i class="fas fa-1x fa-bars text-themed"></i>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="/">Will Jackson</a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon">☰</span>
             </button>
 
-          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav ml-auto"><a class="nav-item nav-link " href="/about">About</a>
-
-              <a class="nav-item nav-link " href="/projects/">Projects</a>
-              <a class="nav-item nav-link " href="/experience/">Experience</a>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <div class="navbar-nav ms-auto">
+                    <a class="nav-item nav-link" href="about.html">About</a>
+                    <a class="nav-item nav-link" href="projects.html">Projects</a>
+                    <a class="nav-item nav-link" href="experience.html">Experience</a>
+                </div>
             </div>
-          </div>
         </div>
     </nav>
 
-    
+    <!-- Main Content -->
     <h1>Hi, I'm William.</h1>
-    <p>I'm a recent graduate, and a passionate programmer focused on game development.</p>
+    <p>I'm a recent graduate and a passionate programmer focused on game development.</p>
+
     <div>
         <a href="projects.html" class="btn">View My Work</a>
         <a href="about.html" class="btn">About Me</a>
         <a href="contact.html" class="btn">Contact</a>
     </div>
+
+    <!-- Bootstrap JS (for responsive navbar toggling) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
 </body>
+
 </html>
