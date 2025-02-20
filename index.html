@@ -112,6 +112,29 @@
             font-size: 1.2rem;
         }
 
+        .project {
+            background-color: #283640 !important;
+            padding: 15px;
+            margin: 15px auto;
+            width: 80%;
+            max-width: 600px;
+            border-radius: 8px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            h3 {
+                color: #007bff;
+            }
+            p {
+                color: #ffffff;
+            }
+            animation: fade 1s ease-out forwards;  /* Apply the animation */
+            animation-delay: 2s;
+        }
+        .project a {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
     </style>
 </head>
 
@@ -158,7 +181,18 @@
     <section id="projects">
         <div>
             <h2>My Work</h2>
-            
+            <div class="project">
+                <h3>Dissertation: 3D Maze Generation and Solving Algorithms</h3>
+                <p> Used Python to create algorithms to create and solve 3D cube (n by n by n) mazes.
+                Took the concept of trees in graph theory to create these algorithms. </p>
+                <a href="https://willjackson117.github.io/">View on GitHub</a>
+            </div>
+
+            <div class="project">
+                <h3>UK Population Visualisation</h3>
+                <p>Used Java in Processing 4 to create a 3D interactive map to show the population of UK cities</p>
+                <a href="https://willjackson117.github.io/">View on GitHub</a>
+            </div>
         </div>
     </section>
 
