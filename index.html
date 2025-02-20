@@ -75,45 +75,52 @@
             max-width: 600px;
         }
 
-        /* Project Section */
-        .projects-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            margin-top: 40px;
-        }
+        /* Responsive Project Grid */
+    .project-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive columns */
+        gap: 20px; /* Space between projects */
+        margin-top: 20px;
+    }
 
-        .project {
-            background-color: #283640;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s ease;
-            cursor: pointer;
-        }
+    /* Project Card Styling */
+    .project {
+        background-color: #283640;
+        border-radius: 12px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        overflow: hidden; /* Ensures rounded corners apply to image */
+        text-decoration: none; /* Remove link underline */
+        color: white; /* Ensure text is white */
+        transition: transform 0.3s ease; /* Smooth hover effect */
+    }
 
-        .project:hover {
-            transform: translateY(-10px);
-        }
+    .project:hover {
+        transform: translateY(-10px); /* Lift on hover */
+    }
 
-        .project img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-        }
+    .project img {
+        width: 100%; /* Ensure image fits container */
+        height: 200px; /* Fixed height for consistency */
+        object-fit: cover; /* Ensure images crop nicely */
+    }
 
-        .project-content {
-            padding: 20px;
-        }
+    .project h3 {
+        margin: 15px;
+        font-size: 1.5rem;
+        color: #007bff; /* Blue title */
+    }
 
-        .project h3 {
-            color: #007bff;
-            margin: 0 0 10px;
-        }
+    .project p {
+        margin: 0 15px 15px;
+        font-size: 1rem;
+    }
 
-        .project p {
-            margin: 0;
+    /* Ensure smooth responsiveness on smaller screens */
+    @media (max-width: 768px) {
+        .project-grid {
+            grid-template-columns: 1fr; /* Single column on smaller screens */
         }
+    }
 
     </style>
 </head>
@@ -162,35 +169,34 @@
 
     <!-- My Work Section -->
     <section id="projects">
-        <div>
-            <h2>My Work</h2>
-            <div class="projects-container">
-                <div class="project" onclick="location.href='https://github.com/willjackson117';">
-                    <img src="https://via.placeholder.com/600x400" alt="Maze Project">
-                    <div class="project-content">
-                        <h3>3D Maze Generation</h3>
-                        <p>Created 3D maze algorithms using Python and graph theory.</p>
-                    </div>
-                </div>
+    <div>
+        <h2>My Work</h2>
 
-                <div class="project" onclick="location.href='https://github.com/willjackson117';">
-                    <img src="https://via.placeholder.com/600x400" alt="UK Population Visualization">
-                    <div class="project-content">
-                        <h3>UK Population Visualization</h3>
-                        <p>Built a 3D interactive map in Java using Processing 4.</p>
-                    </div>
-                </div>
+        <!-- Project Grid -->
+        <div class="project-grid">
+            <a href="https://willjackson117.github.io/" class="project">
+                <img src="your-image1.jpg" alt="Maze Project">
+                <h3>3D Maze Generation</h3>
+                <p>Used Python to create and solve 3D cube mazes with graph theory-based algorithms.</p>
+            </a>
 
-                <div class="project" onclick="location.href='https://github.com/willjackson117';">
-                    <img src="https://via.placeholder.com/600x400" alt="AI Diabetes Prediction">
-                    <div class="project-content">
-                        <h3>AI Diabetes Prediction</h3>
-                        <p>Developed a Python model to predict diabetes in patients.</p>
-                    </div>
-                </div>
-            </div>
+            <a href="https://willjackson117.github.io/" class="project">
+                <img src="your-image2.jpg" alt="Population Project">
+                <h3>UK Population Visualisation</h3>
+                <p>Used Java (Processing 4) to create a 3D map showing UK city populations interactively.</p>
+            </a>
+
+            <a href="https://willjackson117.github.io/" class="project">
+                <img src="your-image3.jpg" alt="AI Diabetes Project">
+                <h3>AI Diabetes Prediction</h3>
+                <p>Built a Python model to predict diabetes in patients using machine learning techniques.</p>
+            </a>
+
+            <!-- Add more projects as needed -->
         </div>
-    </section>
+
+    </div>
+</section>
 
     <!-- Bootstrap JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
