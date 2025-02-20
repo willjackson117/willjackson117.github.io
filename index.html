@@ -134,7 +134,52 @@
             text-decoration: none;
             font-weight: bold;
         }
+  /* Responsive Project Grid */
+    .project-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive columns */
+        gap: 20px; /* Space between projects */
+        margin-top: 20px;
+    }
 
+    /* Project Card Styling */
+    .project {
+        background-color: #283640;
+        border-radius: 12px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        overflow: hidden; /* Ensures rounded corners apply to image */
+        text-decoration: none; /* Remove link underline */
+        color: white; /* Ensure text is white */
+        transition: transform 0.3s ease; /* Smooth hover effect */
+    }
+
+    .project:hover {
+        transform: translateY(-10px); /* Lift on hover */
+    }
+
+    .project img {
+        width: 100%; /* Ensure image fits container */
+        height: 200px; /* Fixed height for consistency */
+        object-fit: cover; /* Ensure images crop nicely */
+    }
+
+    .project h3 {
+        margin: 15px;
+        font-size: 1.5rem;
+        color: #007bff; /* Blue title */
+    }
+
+    .project p {
+        margin: 0 15px 15px;
+        font-size: 1rem;
+    }
+
+    /* Ensure smooth responsiveness on smaller screens */
+    @media (max-width: 768px) {
+        .project-grid {
+            grid-template-columns: 1fr; /* Single column on smaller screens */
+        }
+    }
     </style>
 </head>
 
@@ -178,28 +223,35 @@
     </section>
 
     <!-- My Work Section -->
-    <section id="projects">
-        <div>
-            <h2>My Work</h2>
-            <div class="project">
-                <h3>Dissertation: 3D Maze Generation and Solving Algorithms</h3>
-                <p> Used Python to create algorithms to create and solve 3D cube (n by n by n) mazes.
-                Took the concept of trees in graph theory to create these algorithms. </p>
-                <a href="https://willjackson117.github.io/">View on GitHub</a>
-            </div>
+<section id="projects">
+    <div>
+        <h2>My Work</h2>
 
-            <div class="project">
+        <!-- Project Grid -->
+        <div class="project-grid">
+            <a href="https://willjackson117.github.io/" class="project">
+                <img src="your-image1.jpg" alt="Maze Project">
+                <h3>3D Maze Generation</h3>
+                <p>Used Python to create and solve 3D cube mazes with graph theory-based algorithms.</p>
+            </a>
+
+            <a href="https://willjackson117.github.io/" class="project">
+                <img src="your-image2.jpg" alt="Population Project">
                 <h3>UK Population Visualisation</h3>
-                <p>Used Java in Processing 4 to create a 3D interactive map to show the population of UK cities</p>
-                <a href="https://willjackson117.github.io/">View on GitHub</a>
-            </div>
-            <div class="project">
-                <h3>Ai Diabetes Prediction</h3>
-                <p>Used Python to create a model to predict diabetes in pateints.</p>
-                <a href="https://willjackson117.github.io/">View on GitHub</a>
-            </div>
+                <p>Used Java (Processing 4) to create a 3D map showing UK city populations interactively.</p>
+            </a>
+
+            <a href="https://willjackson117.github.io/" class="project">
+                <img src="your-image3.jpg" alt="AI Diabetes Project">
+                <h3>AI Diabetes Prediction</h3>
+                <p>Built a Python model to predict diabetes in patients using machine learning techniques.</p>
+            </a>
+
+            <!-- Add more projects as needed -->
         </div>
-    </section>
+
+    </div>
+</section>
 
     <!-- Contact Section -->
     <section id="contact">
