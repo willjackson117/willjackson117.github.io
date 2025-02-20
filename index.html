@@ -13,12 +13,12 @@
         /* General Page Styling */
         body {
             font-family: Arial, sans-serif;
-            text-align: center;
             background-color: #36454F !important;
             padding: 50px;
             margin: 0;
             height: 100vh;
             overflow: hidden; /* Prevent scrolling */
+            box-sizing: border-box;
         }
 
         /* Fade-in Animation */
@@ -41,8 +41,14 @@
             animation-fill-mode: forwards; /* Keep final state */
         }
 
+        /* Left-aligned content */
+        .intro {
+            text-align: left; /* Align heading and paragraph to the left */
+            margin-left: 10%;
+            max-width: 600px; /* Control the max width for better visuals */
+        }
+
         h1 {
-            align: left;
             color: #007bff;
             animation: fade 1s ease-out forwards;
         }
@@ -64,7 +70,8 @@
             text-align: center;
             text-decoration: none;
             border-radius: 8px;
-            margin: 30px auto;
+            margin: 20px 0;
+            transition: background 0.3s;
         }
 
         .btn:hover {
@@ -126,6 +133,13 @@
             color: white !important;
         }
 
+        /* Ensure navbar collapses nicely on smaller screens */
+        .navbar-toggler {
+            border: 2px solid #007bff;
+            border-radius: 8px;
+            color: white !important;
+        }
+
     </style>
 </head>
 
@@ -152,10 +166,10 @@
     </nav>
 
     <!-- Main Content -->
-    <h1>Hi, I'm William.</h1>
-    <p>I'm a recent graduate and a passionate programmer focused on game development.</p>
+    <div class="intro">
+        <h1>Hi, I'm William.</h1>
+        <p>I'm a recent graduate and a passionate programmer focused on game development.</p>
 
-    <div>
         <a href="projects.html" class="btn">View My Work</a>
         <a href="about.html" class="btn">About Me</a>
         <a href="contact.html" class="btn">Contact</a>
