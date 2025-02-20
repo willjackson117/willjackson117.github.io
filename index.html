@@ -27,8 +27,6 @@
             left: 50%;
             transform: translateX(-50%);
             background: rgba(40, 54, 64, 0.9); /* Dark semi-transparent box */
-            /*border: 2px solid #007bff;
-            border-radius: 12px; */
             padding: 10px 20px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             z-index: 999; /* Keep navbar above all sections */
@@ -134,11 +132,7 @@
         }
   /* Responsive Project Grid */
     .project-grid {
-        display: grid;
-        align-items: center;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive columns */
-        gap: 20px; /* Space between projects */
-        margin-top: 20px;
+        display: inline;
     }
 
     /* Project Card Styling */
@@ -188,7 +182,7 @@
     <!-- Navigation Bar -->
     <nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#home">Will Jackson</a>
+            <a class="navbar-brand" href="#home"> Portfolio: Will Jackson</a>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
