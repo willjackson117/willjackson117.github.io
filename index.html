@@ -62,8 +62,16 @@
             justify-content: flex-start;
             padding: 100px 10%;
             box-sizing: border-box;
+       
+            opacity: 0; /* Invisible initially */
+            transform: translateY(50px); /* Move down slightly */
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
         }
-
+/* When Section is in View */
+        section.show {
+            opacity: 1; /* Fully visible */
+            transform: translateY(0); /* Move to original position */
+        }
         /* Intro Section */
         #home h1 {
             font-size: 4rem;
@@ -237,7 +245,26 @@
 
     <!-- Bootstrap JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const sections = document.querySelectorAll("section");
 
+            function fadeInSections() {
+                sections.forEach(section => {
+                    const sectionTop = section.getBoundingClientRect().top;
+                    const triggerPoint = window.innerHeight * 0.75; // 75% of the viewport height
+
+                    if (sectionTop < triggerPoint) {
+                        section.classList.add("show");
+                    }
+                });
+            }
+
+    // Run when the page loads and when scrolling
+        fadeInSections();
+        window.addEventListener("scroll", fadeInSections);
+        });
+    </script>
 </body>
 
 </html>
