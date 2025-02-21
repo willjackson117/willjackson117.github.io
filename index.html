@@ -88,16 +88,6 @@
                 transform: translateY(0);
             }
         }
-/*
-        #home h1, #home p {
-            opacity: 0;
-            animation: fade 1s ease-out forwards;
-        }
-
-        #home p {
-            animation-delay: 1s;
-        }
-*/
         /* Content Section Titles */
         section h2 {
             font-size: 3rem;
@@ -172,13 +162,13 @@
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon">☰</span>
+                <span class="navbar-toggler-icon"></span>
             </button>
 
             <div class="collapse navbar-collapse" id="navbarNav">
                 <div class="navbar-nav ms-auto">
                     <a class="nav-link" href="#about">About Me</a>
-                    <a class="nav-link" href="#projects">My Work</a>
+                    <a class="nav-link" href="#projects">Projects</a>
                     <a class="nav-link" href="#contact">Contact</a>
                 </div>
             </div>
@@ -204,7 +194,7 @@
     <!-- My Work Section -->
     <section id="projects">
         <div>
-            <h2>My Work</h2>
+            <h2>My Projects</h2>
             <div class="project-grid">
                 <a href="https://willjackson117.github.io/" class="project">
                     <img src="your-image1.jpg" alt="Maze Project">
@@ -237,6 +227,7 @@
 
     <!-- Bootstrap JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <!-- Fading JS -->
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             const sections = document.querySelectorAll("section");
