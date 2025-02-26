@@ -73,11 +73,18 @@
         }
 
         p {
-            max-width: 600px; /* Adjusted for better balance */
-            margin: 0 auto; /* Centers block elements */
+            max-width: 500px; /* Match image width */
+            margin: 0 auto; /* Center the paragraph */
             text-align: center;
-            line-height: 1.6; /* Improve readability */
+            line-height: 1.6;
             margin-bottom: 10px;
+        }
+
+        img {
+            max-width: 500px; /* Ensure images don’t exceed this width */
+            height: auto;
+            display: block;
+            margin: 10px auto; /* Center images */
         }
         /* Fade-in Animation */
         section {
@@ -89,13 +96,6 @@
         section.show {
             opacity: 1;
             transform: translateY(0);
-        }
-
-        img {
-            max-width: 100%;
-            height: auto;
-            display: block;
-            margin: 10px auto;
         }
 
         /* Responsive adjustments */
