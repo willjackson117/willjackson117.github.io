@@ -1,1 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Maze Project</title>
+
+    <!-- Bootstrap for Navbar -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" >
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #36454F;
+            scroll-behavior: smooth;
+            color: white;
+        }
+        nav {
+            position: fixed;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(40, 54, 64, 0.9);
+            padding: 10px 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            z-index: 999;
+            width: 100%;
+        }
+        .navbar-brand {
+            color: white;
+            font-weight: bold;
+            font-size: 1.2rem;
+            text-decoration: none;
+        }
+        .navbar-nav .nav-link {
+            color: white !important;
+            padding: 8px 16px;
+            margin: 5px;
+            border: 2px solid #007bff;
+            border-radius: 8px;
+            transition: background 0.3s ease;
+        }
+        .navbar-nav .nav-link:hover {
+            background-color: #007bff;
+            color: white !important;
+        }
+
+        /* Section Styling */
+        section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            padding: 100px 10%;
+            box-sizing: border-box;
+       
+            opacity: 0; /* Invisible initially */
+            transform: translateY(50px); /* Move down slightly */
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        section.show {
+            opacity: 1; /* Fully visible */
+            transform: translateY(0); /* Move to original position */
+        }
+        /* Intro Section */
+        #home h1 {
+            font-size: 4rem;
+            color: #007bff;
+            margin-bottom: 20px;
+        }
+        #home p {
+            font-size: 1.5rem;
+            max-width: 600px;
+        }
+
+        /* Fade-in Animation */
+        @keyframes fade {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        /* Content Section Titles */
+        section h2 {
+            font-size: 3rem;
+            color: #007bff;
+            margin-bottom: 20px;
+        }
+
+        section p {
+            max-width: 600px;
+            font-size: 1.2rem;
+        }
+
+        /* Project Grid */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        /* Project Card Styling */
+        .project {
+            background-color: #283640;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            text-decoration: none;
+            color: white;
+            transition: transform 0.3s ease;
+        }
+
+        .project:hover {
+            transform: translateY(-10px);
+        }
+
+        .project img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .project h3 {
+            margin: 15px;
+            font-size: 1.5rem;
+            color: #007bff;
+        }
+
+        .project p {
+            margin: 0 15px 15px;
+            font-size: 1rem;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            section {
+                padding: 80px 5%;
+            }
+
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        .fa {
+          padding: 20px;
+          font-size: 30px;
+          width: 50px;
+          text-align: center;
+          text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#home">Portfolio: Will Jackson</a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <div class="navbar-nav ms-auto">
+                    <a class="nav-link" href="#about">About Me</a>
+                    <a class="nav-link" href="#projects">Projects</a>
+                    <a class="nav-link" href="#contact">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Intro Section -->
+    <section id="home">
+        <div>
+            <h1>3D Maze Generation</h1>
+            <h2>Overview</h2>
+            <p>For my Dissertation as part of my degree, I created algorithms to both create and solve 3D cube (n-by-n-by-n) Mazes.</p>
+            <p>As part of this project I researched the history of mazes and maze generation, as well as the real word applications of
+            generation and solving algorithms.</p>
+            <h2>My Artefact</h2>
+            <p>To create said algorithms, I took the concept of trees in graph theory and applied it to mazes. We can imagine the nodes
+            in a tree as potential corners or junctions in a maze, and the vertices as the paths which connect them.
+            We can also imagine the root node as the entrance of the maze, and select one leaf node to be the exit.
+            There is only one path between the root and a specific leaf node in a tree, so we can use this to create a perfect maze
+            (a perfect maze being a maze with no loops.</p>
+            <p>Some alterations will need to be made to the tree however. Instead of a node having a maximum of two children, for a 3D maze they
+            will have a maximum of five (and always one parent node).</p>
+            <p>Now we can use graph theory algorithms to build and solve these mazes. In my case I used algorithms such as prim's and depth first search
+            to create the mazes and bredth first search to solve them.</p>
+            <p>To compare the effectiveness of the algorithms against one another I used tableu to create visualisations comparing the mazes using data retrieved from the algorithms.
+            Comparisons include number of dead ends to analyse the difficulty of a maze and time to build to measure the speed of the algorithms.</p>
+            <p>I also looked into further avenues of research for this project. I would like to explore building these mazes in a 3D environment to create interactive mazes,
+            and possibly create an artificial intelligence to analyse a humans inputs when solving a maze to mimic a human solving a maze.
+            I believe this would enable me to more effectively analyse the difficulty of a maze.</p>
+        </div>
+    </section>
+</body>
+
+</html>
 
