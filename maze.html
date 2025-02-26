@@ -10,12 +10,17 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #36454F;
-            scroll-behavior: smooth;
-            color: white;
+            font-size: 14px; /* Reduce overall text size */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        section {
+            width: 80%; /* Restrict width */
+            max-width: 900px; /* Keep it readable on large screens */
+            text-align: center; /* Center-align text */
         }
         nav {
             position: fixed;
@@ -46,34 +51,19 @@
             background-color: #007bff;
             color: white !important;
         }
-
-        /* Section Styling */
-        section {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: flex-start;
-            padding: 100px 10%;
-            box-sizing: border-box;
-       
-            opacity: 0; /* Invisible initially */
-            transform: translateY(50px); /* Move down slightly */
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        .content-box {
+            background: rgba(40, 54, 64, 0.9); /* Same as navbar */
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            color: white;
         }
-        section.show {
-            opacity: 1; /* Fully visible */
-            transform: translateY(0); /* Move to original position */
-        }
+        /*section.show {
+            opacity: 1;
+            transform: translateY(0); 
+        } 
+        */
         /* Intro Section */
-        #home h1 {
-            font-size: 4rem;
-            color: #007bff;
-            margin-bottom: 20px;
-        }
-        #home p {
-            font-size: 1.5rem;
-            max-width: 600px;
-        }
 
         /* Fade-in Animation */
         @keyframes fade {
@@ -87,25 +77,13 @@
                 transform: translateY(0);
             }
         }
-        /* Content Section Titles */
-        section h2 {
-            font-size: 3rem;
-            color: #007bff;
-            margin-bottom: 20px;
-        }
-
-        section p {
-            max-width: 600px;
-            font-size: 1.2rem;
-        }
-
       
         /* Responsive adjustments */
         @media (max-width: 768px) {
-            section {
-                padding: 80px 5%;
+            .content-box {
+            width: 90%;
+            padding: 20px;
             }
-
         }
     </style>
 </head>
@@ -125,8 +103,8 @@
     </nav>
 
     <!-- Main Intro Section -->
-    <section id="home">
-        <div>
+    <section>
+        <div class="content-box">
             <h1>3D Maze Generation</h1>
             <h2>Overview</h2>
             <p>For my Dissertation as part of my degree, I created algorithms to both create and solve 3D cube (n-by-n-by-n) Mazes.</p>
