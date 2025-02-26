@@ -8,81 +8,79 @@
 
     <!-- Bootstrap for Navbar -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    
     <style>
-        body {
+        /* General Styles */
+        html, body {
+            height: 100%;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            background-color: #36454F; /* Ensures dark background */
+            color: white;
             font-size: 14px; /* Reduce overall text size */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
+            font-family: Arial, sans-serif;
         }
 
-        section {
-            width: 80%; /* Restrict width */
-            max-width: 900px; /* Keep it readable on large screens */
-            text-align: center; /* Center-align text */
-        }
+        /* Navbar Styles */
         nav {
             position: fixed;
             top: 0;
-            left: 50%;
-            transform: translateX(-50%);
+            left: 0;
+            width: 100%;
             background: rgba(40, 54, 64, 0.9);
             padding: 10px 20px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            z-index: 999;
-            width: 100%;
+            z-index: 1000;
         }
+
         .navbar-brand {
             color: white;
             font-weight: bold;
             font-size: 1.2rem;
             text-decoration: none;
         }
-        .navbar-nav .nav-link {
-            color: white !important;
-            padding: 8px 16px;
-            margin: 5px;
-            border: 2px solid #007bff;
-            border-radius: 8px;
-            transition: background 0.3s ease;
+
+        /* Center the Content */
+        section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+            text-align: center;
         }
-        .navbar-nav .nav-link:hover {
-            background-color: #007bff;
-            color: white !important;
-        }
+
         .content-box {
             background: rgba(40, 54, 64, 0.9); /* Same as navbar */
-            padding: 30px;
+            padding: 40px;
+            width: 90%;
+            max-width: 900px;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-            color: white;
         }
-        /*section.show {
-            opacity: 1;
-            transform: translateY(0); 
-        } 
-        */
-        /* Intro Section */
+
+        p {
+            line-height: 1.6; /* Improve readability */
+        }
 
         /* Fade-in Animation */
-        @keyframes fade {
-            from {
-                opacity: 0;
-                transform: translateY(50px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        section {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
         }
-      
+
+        section.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
         /* Responsive adjustments */
         @media (max-width: 768px) {
             .content-box {
-            width: 90%;
-            padding: 20px;
+                width: 95%;
+                padding: 20px;
             }
         }
     </style>
@@ -102,34 +100,34 @@
         </div>
     </nav>
 
-    <!-- Main Intro Section -->
+    <!-- Main Content Section -->
     <section>
         <div class="content-box">
             <h1>3D Maze Generation</h1>
             <h2>Overview</h2>
             <p>For my Dissertation as part of my degree, I created algorithms to both create and solve 3D cube (n-by-n-by-n) Mazes.</p>
-            <p>As part of this project I researched the history of mazes and maze generation, as well as the real-world applications of
-            generation and solving algorithms.</p>
+            <p>As part of this project, I researched the history of mazes and maze generation, as well as real-world applications of
+                generation and solving algorithms.</p>
+            
             <h2>My Artefact</h2>
-            <p>To create said algorithms, I took the concept of trees in graph theory and applied it to mazes. We can imagine the nodes
-            in a tree as potential corners or junctions in a maze, and the vertices as the paths which connect them.
-            We can also imagine the root node as the entrance of the maze, and select one leaf node to be the exit.
-            There is only one path between the root and a specific leaf node in a tree, so we can use this to create a perfect maze
-            (a perfect maze being a maze with no loops.</p>
-            <p>Some alterations will need to be made to the tree however. Instead of a node having a maximum of two children, for a 3D maze they
-            will have a maximum of five (and always one parent node).</p>
-            <p>Now we can use graph theory algorithms to build and solve these mazes. In my case I used algorithms such as prim's and depth first search
-            to create the mazes and breadth first search to solve them.</p>
-            <p>To compare the effectiveness of the algorithms against one another I used tableau to create visualisations comparing the mazes using data retrieved from the algorithms.
-            Comparisons include number of dead ends to analyse the difficulty of a maze and time to build to measure the speed of the algorithms.</p>
-            <p>I also looked into further avenues of research for this project. I would like to explore building these mazes in a 3D environment to create interactive mazes,
-            and possibly create an artificial intelligence to analyse a humans inputs when solving a maze to mimic a human solving a maze.
-            I believe this would enable me to more effectively analyse the difficulty of a maze.</p>
+            <p>To create these algorithms, I applied graph theory concepts to mazes. Nodes represent junctions, while edges represent paths. 
+               A root node serves as the maze entrance, and a selected leaf node as the exit. Since trees have only one path between nodes, 
+               they naturally form "perfect" mazes (mazes without loops).</p>
+            
+            <p>In a 3D maze, nodes can have up to five children instead of two (plus one parent). I used Prim’s and Depth-First Search 
+               algorithms for maze generation, and Breadth-First Search for solving.</p>
+            
+            <p>To analyze performance, I visualized results in Tableau, comparing factors such as the number of dead ends (difficulty) and 
+               generation time (speed).</p>
+
+            <p>For future work, I want to create interactive 3D mazes and AI that mimics human problem-solving to better evaluate maze difficulty.</p>
         </div>
     </section>
-        <!-- Bootstrap JS -->
+
+    <!-- Bootstrap JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
-    <!-- Fading JS -->
+
+    <!-- Fading Effect JS -->
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             const sections = document.querySelectorAll("section");
@@ -137,7 +135,7 @@
             function fadeInSections() {
                 sections.forEach(section => {
                     const sectionTop = section.getBoundingClientRect().top;
-                    const triggerPoint = window.innerHeight * 0.75; // 75% of the viewport height
+                    const triggerPoint = window.innerHeight * 0.75; // 75% of viewport height
 
                     if (sectionTop < triggerPoint) {
                         section.classList.add("show");
@@ -145,12 +143,11 @@
                 });
             }
 
-    // Run when the page loads and when scrolling
-        fadeInSections();
-        window.addEventListener("scroll", fadeInSections);
+            fadeInSections();
+            window.addEventListener("scroll", fadeInSections);
         });
     </script>
+
 </body>
 
 </html>
-
