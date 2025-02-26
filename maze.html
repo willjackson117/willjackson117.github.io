@@ -158,6 +158,29 @@
             I believe this would enable me to more effectively analyse the difficulty of a maze.</p>
         </div>
     </section>
+        <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <!-- Fading JS -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const sections = document.querySelectorAll("section");
+
+            function fadeInSections() {
+                sections.forEach(section => {
+                    const sectionTop = section.getBoundingClientRect().top;
+                    const triggerPoint = window.innerHeight * 0.75; // 75% of the viewport height
+
+                    if (sectionTop < triggerPoint) {
+                        section.classList.add("show");
+                    }
+                });
+            }
+
+    // Run when the page loads and when scrolling
+        fadeInSections();
+        window.addEventListener("scroll", fadeInSections);
+        });
+    </script>
 </body>
 
 </html>
